@@ -1,0 +1,14 @@
+docker-compose up --build db
+
+docker exec -it rss_server sh
+
+psql -U postgres -d rss_server
+
+
+run migrations with goose in sql/schema
+goose postgres postgres://postgres:donkey6@localhost:5432/rss_server up
+goose postgres postgres://postgres:donkey6@localhost:5432/rss_server down
+
+
+in root of project run:
+sqlc generate
